@@ -5,7 +5,6 @@
         <title>Markdown文档在线编辑、预览,支持图片上传、公式编辑、流程图</title>
         <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="/css/editormd.css" />   
-        <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
         <style>            
             /*.editormd-preview-theme-dark {
                 color: #777;
@@ -105,16 +104,15 @@
         <script src="/editormd.js"></script>   
         <script type="text/javascript">
             var testEditor,md;
-
-        $(document).ready(function(){
-            
-            $("#test-editormd").bind('DOMNodeInserted', function(e) {
-    
-            	 if (localStorage) {
+　function save_content(){
+　　　　   
+　　　　     if (localStorage) {
             		localStorage["content"] =$(".editormd-markdown-textarea").val();
             	}
-            	
-            });
+　　　　}
+　　　　setInterval("save_content()",30000);  // 30s执行一次 
+        $(document).ready(function(){
+        
             
             var isHave = false;
 
